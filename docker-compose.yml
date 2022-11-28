@@ -5,7 +5,7 @@ services:
     container_name: main
     image: main
     ports:
-      - ${SERVER_PORT}:${SERVER_PORT}
+      - ${PORT}:${PORT}
       - 9229:9229
     build:
       context: .
