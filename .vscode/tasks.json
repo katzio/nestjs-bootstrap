@@ -4,7 +4,7 @@
     {
       "type": "shell",
       "label": "Debug mode",
-      "command": "docker-compose run --rm --service-ports main ts-node-dev --inspect-brk=0.0.0.0:9229 --transpile-only --ignore-watch node_modules /user/src/main.ts server run",
+      "command": "docker-compose run --rm --service-ports main ts-node-dev --inspect-brk=0.0.0.0:9229 --transpile-only --ignore-watch node_modules ./src/main.ts server run",
       "problemMatcher": []
     }
   ]
