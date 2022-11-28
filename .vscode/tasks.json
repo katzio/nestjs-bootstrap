@@ -1,11 +1,11 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "shell",
-			"label": "debug",
-			"command": "docker-compose run --rm --service-ports nestjs-bootstrap npm run start:debug",
-			"problemMatcher": []
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Debug mode",
+      "command": "docker-compose run --rm --service-ports main ts-node-dev --inspect-brk=0.0.0.0:9229 --transpile-only --ignore-watch node_modules /user/src/main.ts server run",
+      "problemMatcher": []
+    }
+  ]
 }

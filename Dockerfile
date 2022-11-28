@@ -1,14 +1,41 @@
-FROM node:19-alpine
+# DEVELOPMENT
+
+FROM node:18-alpine as development
 RUN npm install -g typescript ts-node-dev ts-node source-map-support npm
 
-RUN mkdir -p /app
+WORKDIR /usr/src/app
 
-COPY package*.json /app/
+COPY --chown=node:node package*.json ./
 
-WORKDIR /app
+RUN npm ci
 
-RUN npm install --loglevel=warn
+COPY --chown=node:node . .
 
-COPY . .
+USER node
+
+# BUILD PRODUCTION
+
+FROM node:18-alpine As build
+
+WORKDIR /usr/src/app
+
+COPY --chown=node:node package*.json ./
+COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node . .
 
 RUN npm run build
+
+ENV NODE_ENV production
+
+RUN npm ci --only=production && npm cache clean --force
+
+USER node
+
+# PRODUCTION
+
+FROM node:18-alpine As production
+
+COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+
+CMD [ "node", "dist/main.js" ]

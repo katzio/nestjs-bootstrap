@@ -1,19 +1,19 @@
-version: '2'
+version: '3'
 
 services:
-  nestjs-bootstrap:
-    container_name: nestjs-bootstrap
-    image: nestjs-bootstrap
+  main:
+    container_name: main
+    image: main
     ports:
-      - 3000:3000
+      - ${SERVER_PORT}:${SERVER_PORT}
       - 9229:9229
     build:
       context: .
       dockerfile: Dockerfile
+      target: development
     volumes:
-      - .:/app:cached
-      - nodemodules:/app/node_modules
+      - .:/usr/src/app:cached
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
     command: npm run start:dev
-
-volumes:
-  nodemodules: {}

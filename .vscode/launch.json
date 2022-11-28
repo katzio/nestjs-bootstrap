@@ -9,9 +9,9 @@
             "request": "attach",
             "name": "Attach to Process",
             "localRoot": "${workspaceFolder}",
-            "remoteRoot": "/app",
+            "remoteRoot": "/usr/src/app",
             "sourceMapPathOverrides": {
-                "/app/*": "${workspaceFolder}/*"
+                "/usr/src/app/*": "${workspaceFolder}/*"
             },
             "port": 9229,
         }
