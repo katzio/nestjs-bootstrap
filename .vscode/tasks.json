@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "debug",
+			"command": "docker-compose run --rm --service-ports nestjs-bootstrap npm run start:debug",
+			"problemMatcher": []
+		}
+	]
+}
