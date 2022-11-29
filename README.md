@@ -7,14 +7,19 @@
   - [ ] SQL: Postgress
   - [ ] NoSQL: MongoDB
 - [ ] Background Workers / Delayed Jobs
-- [ ] Event Driven Development
-  - [ ] Pub/Sub Service (External)
-  - [ ] Pub/Sub Client
+
 
 ## Improvements
 
 - [x] Dockerfile multistage support
+- [x] Google Cloud Playground
+- [ ] Use Nginx as reverse proxy (prep for future FE) 
 
+## Expansions
+
+- [ ] Event Driven Development
+  - [ ] Pub/Sub Service (External)
+  - [ ] Pub/Sub Client (NPM?)
 
 ## How to use
 
