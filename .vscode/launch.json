@@ -10,6 +10,7 @@
             "name": "Attach to NestJS",
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/usr/src/app",
+            "preLaunchTask": "Debug Mode",
             "sourceMapPathOverrides": {
                 "/usr/src/app/*": "${workspaceFolder}/*"
             },

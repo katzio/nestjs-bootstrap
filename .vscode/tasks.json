@@ -3,7 +3,7 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "Debug mode",
+      "label": "Debug Mode",
       "command": "docker-compose run --rm --service-ports main ts-node-dev --inspect-brk=0.0.0.0:9229 --transpile-only --ignore-watch node_modules ./src/main.ts server run",
       "problemMatcher": []
     }
