@@ -1,6 +1,6 @@
 # DEVELOPMENT
 
-FROM node:18-alpine as development
+FROM node:23-alpine as development
 RUN npm install -g typescript ts-node-dev ts-node source-map-support npm
 
 WORKDIR /usr/src/app
@@ -15,7 +15,7 @@ USER node
 
 # BUILD PRODUCTION
 
-FROM node:18-alpine As build
+FROM node:23-alpine As build
 
 WORKDIR /usr/src/app
 
@@ -33,7 +33,7 @@ USER node
 
 # PRODUCTION
 
-FROM node:18-alpine As production
+FROM node:23-alpine As production
 
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
